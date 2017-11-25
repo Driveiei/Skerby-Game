@@ -52,8 +52,8 @@ public class GamePanel extends JPanel implements ActionListener{
 		g2d.translate(camera.getX(), camera.getY()); //start camera
 		
 		g2d.drawImage(background, 0, -30, null);
+                gsm.render(g2d);
 		player.render(g2d);
-		gsm.render(g2d);
 		em.render(g2d);
 		cm.render(g2d);
 //		bm.render(g2d);
@@ -63,19 +63,20 @@ public class GamePanel extends JPanel implements ActionListener{
 		g2d.setColor(Color.BLACK);
 		g2d.setFont(new Font("Fluo_Gums", Font.BOLD, 20));
 		g2d.drawString("Score : " + player.getScore(), 510, 30);
-	
+                
 		g2d.drawString(EnterYourName.yourName, 0, 50);
 		g2d.drawRect(0, 0, 500, 32);
 		g2d.setColor(Color.decode("#404040"));
 		g2d.fillRect(0, 0, 500, 32);
 		g2d.setColor(Color.PINK);
 		g2d.fillRect(0, 0, player.getPlayerHP()*5, 32);
+                
+                
 		if (player.getPlayerHP() == 0){
 			time.stop();
 			g2d.setColor(Color.RED);
 			g2d.setFont(new Font("Angsana New", Font.BOLD, 64));
 			g2d.drawString("GAME OVER", 180, 240);
-                        System.out.println("asdfasdf");
 		}
 	}
 

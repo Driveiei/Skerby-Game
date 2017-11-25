@@ -15,6 +15,8 @@ public class Level1 {
     private Image arrowUp = new ImageIcon("Images/StateLV1/arrowUp.png").getImage();
     private Image spacebar = new ImageIcon("Images/StateLV1/spacebar.png").getImage();
     private Image z = new ImageIcon("Images/StateLV1/z.png").getImage();
+    private Image warpgate = new ImageIcon("Images/StateLV1/WarpGate.png").getImage();
+
     private BlockManager bm;
     
     static ArrayList<Block> blockList = new ArrayList<>();
@@ -58,6 +60,9 @@ public class Level1 {
         g2d.drawString("Jump", 150, 325);
         g2d.drawImage(z, 30, 250, null);
         g2d.drawString("Attack", 90, 275);
+        g2d.drawImage(warpgate, 118, 200,null);
+        g2d.drawImage(warpgate, 5625, 110,null);
+        g2d.drawOval(118,200,50,50);
         bm.render(g2d);
         
     }

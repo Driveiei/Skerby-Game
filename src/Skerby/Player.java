@@ -86,8 +86,8 @@ public class Player {
         colisionEnemy();
         //new
         colisionBlocks();
-        if(playerHP ==0){
-                    JOptionPane.showMessageDialog(null, EnterYourName.yourName+" is die.");
+        if(playerHP == 0){
+            JOptionPane.showMessageDialog(null, EnterYourName.yourName+" is die.");
         }
     }
     

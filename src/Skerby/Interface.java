@@ -43,7 +43,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(220, 310, 190, 60);
+        jButton1.setBounds(220, 310, 190, 50);
 
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
