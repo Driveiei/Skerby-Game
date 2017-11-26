@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 
 public class Coins {
 	
-	private Image coinsImg = new ImageIcon("Images/Items/coinsL.png").getImage();
+	private Image donut = new ImageIcon("Images/Items/donut.png").getImage();
 
 	private double x;
 	private double y;
@@ -19,10 +19,10 @@ public class Coins {
     }
     
     public void render(Graphics2D g2d){
-        g2d.drawImage(coinsImg, (int)x, (int)y, null);
+        g2d.drawImage(donut, (int)x, (int)y, null);
     }
     
     public Rectangle getCoinsBounds(){
-        return new Rectangle((int)x, (int)y, 32, 32);
+        return new Rectangle((int)x, (int)y, 45, 45);
     }
 }

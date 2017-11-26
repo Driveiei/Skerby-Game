@@ -9,13 +9,14 @@ import javax.swing.ImageIcon;
 
 public class Enemy {
 	
-	private Image enemyR = new ImageIcon("Images/Enemy/EnemyR.png").getImage();
+    private Image enemyR = new ImageIcon("Images/Enemy/EnemyR.png").getImage();
     private Image enemyL = new ImageIcon("Images/Enemy/EnemyL.png").getImage();
 
     private double x;
     private double y;
     
     private double speedX = 3;
+    private int count = 0;
     
     private boolean left;
     private boolean right;
@@ -26,24 +27,39 @@ public class Enemy {
     }
     
     public void render(Graphics2D g2d){
-//    	if (right){
+    	if (right){
             g2d.drawImage(enemyR, (int)x, (int)y, null);
-//        }
-//        if (left){
-//            g2d.drawImage(enemyL, (int)x, (int)y, null);
-//        }
+        }
+        if (left){
+            g2d.drawImage(enemyL, (int)x, (int)y, null);
+        }
     }
     
     public void update(){
     	x += speedX;
-        if (x > 1250) {
-            left = true;
-            right = false;
-            speedX = -3;
-        }
-        if (x < 1200) {
+        if (count > 0){
+            if (right == false){
+                left = true;
+                right = false;
+                speedX = -3;
+                count--;
+                if (count == 0){
+                    left = false;
+                }
+            }else
+            if (left == false){
+                right = true;
+                left = false;
+                speedX = 3;
+                count++;
+                if (count == 51){
+                    right = false;
+                }
+            }
+        }else {
             right = true;
             left = false;
+            count++;
             speedX = 3;
         }
     }

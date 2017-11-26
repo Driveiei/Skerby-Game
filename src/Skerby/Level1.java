@@ -23,6 +23,7 @@ public class Level1 {
     
     public Level1(){
     	bm = new BlockManager();
+        
     	bm = new BlockManager(10, 405, 30, 1);
     	bm = new BlockManager(1765, 405, 25, 1);
     	bm = new BlockManager(10, 0, 150, 1);

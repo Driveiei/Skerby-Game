@@ -23,3 +23,4 @@ out/
 
 # MacOS junk (if you use a Mac)
 .DS_Store
+/dist/
