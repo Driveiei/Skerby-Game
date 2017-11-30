@@ -33,7 +33,8 @@ public class EnterYourName extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Skerby Game");
-        setPreferredSize(new java.awt.Dimension(640, 520));
+        setPreferredSize(new java.awt.Dimension(640, 505));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jButton1.setContentAreaFilled(false);
@@ -63,7 +64,7 @@ public class EnterYourName extends javax.swing.JFrame {
         jTextField1.getAccessibleContext().setAccessibleName("");
         jTextField1.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Netbeans\\Workspace\\Skerby-Game2\\Images\\Background\\EnterYourName.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\Skerby-Game\\Images\\Background\\EnterYourName.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 640, 480);
 
@@ -76,7 +77,7 @@ public class EnterYourName extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false); 
-        new Game().setVisible(true);
+        Game.main();
         EnterYourName.yourName = jTextField1.getText();
 
     }//GEN-LAST:event_jButton1ActionPerformed

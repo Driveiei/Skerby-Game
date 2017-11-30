@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class Level1 {
-	
     private Image arrowLeft = new ImageIcon("Images/StateLV1/arrowLeft.png").getImage();
     private Image arrowRight = new ImageIcon("Images/StateLV1/arrowRight.png").getImage();
     private Image arrowUp = new ImageIcon("Images/StateLV1/arrowUp.png").getImage();
@@ -23,7 +22,6 @@ public class Level1 {
     
     public Level1(){
     	bm = new BlockManager();
-        
     	bm = new BlockManager(10, 405, 30, 1);
     	bm = new BlockManager(1765, 405, 25, 1);
     	bm = new BlockManager(10, 0, 150, 1);
@@ -61,9 +59,13 @@ public class Level1 {
         g2d.drawString("Jump", 150, 325);
         g2d.drawImage(z, 30, 250, null);
         g2d.drawString("Attack", 90, 275);
+        g2d.setColor(Color.PINK);
+        g2d.drawOval(145,232,60,60);
+        //g2d.fillOval(145,232,60,60);
         g2d.drawImage(warpgate, 118, 200,null);
+        g2d.drawOval(5652,142,60,60);
+       // g2d.fillOval(5652,142,60,60);
         g2d.drawImage(warpgate, 5625, 110,null);
-        g2d.drawOval(118,200,50,50);
         bm.render(g2d);
         
     }

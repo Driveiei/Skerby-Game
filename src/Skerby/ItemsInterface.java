@@ -37,7 +37,8 @@ public class ItemsInterface extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Skerby Game");
         setMinimumSize(new java.awt.Dimension(640, 480));
-        setPreferredSize(new java.awt.Dimension(640, 520));
+        setPreferredSize(new java.awt.Dimension(640, 505));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jButton1.setContentAreaFilled(false);
@@ -49,7 +50,7 @@ public class ItemsInterface extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(10, 430, 120, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans\\Workspace\\Skerby-Game2\\Images\\Background\\HowToPlayTwo.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\Skerby-Game\\Images\\Background\\HowToPlayTwo.png")); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 640, 480);
 

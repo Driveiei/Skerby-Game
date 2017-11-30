@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class CoinsManager {
 	
     static ArrayList<Coins> coinsList = new ArrayList<>();
-    private Coins coins;
+    private Coins coins;//Hi Thanaphon
     
     public CoinsManager(){
         for (int i = 0; i < 180; i += 60){

@@ -14,9 +14,11 @@ public class Player {
     private Image playerR = new ImageIcon("Images\\Player\\playerR.png").getImage();
     private Image playerJump = new ImageIcon("Images\\Player\\playerJump.png").getImage();
     private Image playerAtk = new ImageIcon("Images\\Player\\playerAtk.png").getImage();
+    private Image playerAtkStar = new ImageIcon("Images\\Player\\Fireballtwo.png").getImage();
+
 //    private Image playerAtk2 = new ImageIcon("Images/Player/playerAtk2.png").getImage();
     
-    private boolean attack;
+    private boolean attack = false;
     private boolean right;
     private boolean left;
     
@@ -28,33 +30,46 @@ public class Player {
     private double maxFallSpeed = 6;
     private double currentFallSpeed = 0.1;
    
-    private double x;
+    private double x ;
     private double y;
     private int playerHP;
-    
+
+    private EnemyManager em;
+    private CoinsManager cm;
+    //add
+    private AttackManager am;
+
     private int score = 0;
     
     static ArrayList<Coins> cl = CoinsManager.getCoinsBounds();
     static ArrayList<Enemy> el = EnemyManager.getEnemyListBounds();
+    static ArrayList<Attack> al = AttackManager.getFireBounds();
+
     //new
     static ArrayList<Block> bl = BlockManager.getBlocksBounds();
     private final int playerWidth = 64;
     private final int playerHeight = 64;
+    
+    private JOptionPane frame;
 
     private int count = 0;
     
-    public Player(){
+    public Player(int hp){
         x = 140;
         y = 200;
-        playerHP = 100;
+        this.playerHP = hp;
     }
     
     public void update(){
+        System.out.println(currentJumpSpeed);
         if (right){
             x += 4;
         }
         if (left) {
             x -= 4;
+        }
+        if (attack){
+		am = new AttackManager(this); // oneRound
         }
         if (jumping){
             y -= currentJumpSpeed;
@@ -86,8 +101,32 @@ public class Player {
         colisionEnemy();
         //new
         colisionBlocks();
+        fireBallEnemy();
+        fireBallBlock();
         if(playerHP == 0){
-            JOptionPane.showMessageDialog(null, EnterYourName.yourName+" is die.");
+//            Game.dieP = new DiePanel();
+//            Game.dieP.setVisible(true);
+//            Game.window.dispose();
+            //JOptionPane.showMessageDialog(null, EnterYourName.yourName+" is die.");
+//            Object[] options = {"Yes, please",
+//                    "No, thanks",
+//                    "No eggs, no ham!"};
+//                    int n = JOptionPane.showOptionDialog(frame,
+//                    "Would you like some green eggs to go "
+//                    + "with that ham?",
+//                    "A Silly Question",
+//                    JOptionPane.YES_NO_CANCEL_OPTION,
+//                    JOptionPane.QUESTION_MESSAGE,
+//                    null,
+//                    options,
+//                    options[2]);
+        
+        
+        
+        
+        }
+        if(playerHP < 0){
+            this.playerHP = 0;
         }
     }
     
@@ -96,20 +135,36 @@ public class Player {
             g2d.drawImage(playerJump, (int)x, (int)y, null);
         }else if (attack == true){
         	g2d.drawImage(playerAtk, (int)x, (int)y, null);
+                am.render(g2d);
         }else {
             g2d.drawImage(playerR, (int)x, (int)y, null);
         }
       //add for test
-//      Graphics2D g3d = (Graphics2D) g2d;
-//      g3d.draw(getBoundsDown());
+      //g2d.drawImage(playerAtkStar, (int)x+80, (int)y+32, null);
 //      g3d.draw(getBoundsRight());
 //      g3d.draw(getBoundsLeft());
 //      g3d.draw(getBoundsTop());
 
     }
     
-    public int getX(){
-        return (int)x;
+    public double getX(){
+        return x;
+    }
+    
+    public int getY(){
+        return (int)y;
+    }
+    
+     public int getPlayerHeight(){
+        return (int)playerHeight;
+    }
+     
+      public int getPlayerWidth(){
+        return (int)playerWidth;
+    }
+      
+      public boolean getAttack(){
+        return attack;
     }
     
     public int getScore(){
@@ -243,6 +298,7 @@ public class Player {
         	if (enemyOrNot(i)){	
             	if (attack){
                     el.remove(i);
+                    score += 15;
                 }else {
                     playerHP -= 1;
                 }
@@ -254,14 +310,18 @@ public class Player {
     public void colisionBlocks(){
         for (int i = 0; i < bl.size(); i++){
             if (getBoundsDown().intersects(bl.get(i).getBlockBounds())){
-                currentFallSpeed = 0;
+                //currentFallSpeed = 0; 
+                //currentJumpSpeed = 6;
+                currentFallSpeed = 0; //original
+                currentJumpSpeed = 6;                
             	//y -= currentJumpSpeed;
             }
         }
         for (int i = 0; i < bl.size(); i++){
             if (getBoundsTop().intersects(bl.get(i).getBlockBounds())){
-            	
-            	y+=15;
+            	falling = true;
+            	jumping = false;
+                //y+=15; //original
             	//y += currentJumpSpeed;
             	//y += currentFallSpeed;
             	
@@ -278,5 +338,37 @@ public class Player {
             } 
         }
     }
+    
+    public void fireBallEnemy(){
+        for (int i = 0; i < el.size(); i++){
+//            if  (getPlayerBounds().intersects(el.get(i).getEnemyBounds())){
+            //new
+
+                try{
+                    if (al.get(0).getFireBounds().intersects(el.get(i).getEnemyBounds())){	
+                    el.remove(i);
+                    al.remove(0);
+                    score += 15;
+                }
+                }catch(Exception e){
+                    
+                }
+            
+        }
+    }
+    
+    public void fireBallBlock(){
+        for (int i = 0; i < bl.size(); i++){
+                try{
+                    if (al.get(0).getFireBounds().intersects(bl.get(i).getBlockBounds())){	
+                    al.remove(0);
+                    }
+                }catch(Exception e){
+                    
+                }
+            
+        }
+    }
+    
 
 }
