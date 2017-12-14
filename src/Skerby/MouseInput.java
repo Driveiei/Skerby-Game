@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -61,3 +62,19 @@ public class MouseInput implements MouseListener {
 		
 	}
 }
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Skerby;
+
+/**
+ *
+ * @author DELL
+ */
+public class MouseInput {
+    
+}
+>>>>>>> 06492be59156b5c4a5572cd433435caf1274aceb
