@@ -25,7 +25,7 @@ public class ScoreManager {
     private EnterYourName eyn;
 
     public ScoreManager() {
-        recordScore();
+//        recordScore();
         loadTextScore();
         sortScore();
     }
@@ -58,7 +58,7 @@ public class ScoreManager {
         readText.close();
     }
 
-    public void recordScore() {
+    public static void recordScore() {
         String outputfile = "src/data/score.txt";
         OutputStream out = null;
         try {
@@ -68,7 +68,7 @@ public class ScoreManager {
             return;
         }
         PrintStream printOut = new PrintStream(out);
-        printOut.printf("%s , %d\n", "s",5);
+        printOut.printf("%s , %d\n", EnterYourName.yourName,Player.getScore());
         printOut.close();
         
     }

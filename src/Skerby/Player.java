@@ -43,7 +43,7 @@ public class Player {
     private boolean inAir = false;
     private int bugJump = 100;
 
-    private int score = 0;
+    private static int score = 0;
     
     static ArrayList<Coins> cl = CoinsManager.getCoinsBounds();
     static ArrayList<Enemy> el = EnemyManager.getEnemyListBounds();
@@ -136,7 +136,8 @@ public class Player {
         colisionBlocks();
         fireBallEnemy();
         fireBallBlock();
-        if(playerHP == 0){
+        if(playerHP <= 0){
+
 //            Game.dieP = new DiePanel();
 //            Game.dieP.setVisible(true);
 //            Game.window.dispose();
@@ -200,7 +201,7 @@ public class Player {
         return attack;
     }
     
-    public int getScore(){
+    public static int getScore(){
         return score;
     }
     

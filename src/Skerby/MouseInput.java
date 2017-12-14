@@ -12,7 +12,7 @@ import java.awt.event.MouseListener;
  *
  * @author DELL
  */
-public class MouseInput extends ScorePanel implements MouseListener {
+public class MouseInput implements MouseListener {
     
     @Override
     public void mouseClicked(MouseEvent e) {
