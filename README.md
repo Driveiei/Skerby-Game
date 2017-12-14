@@ -3,13 +3,18 @@
 ## Skerby Game	
    
    
-   ![game](Review/land.png)
+   
+   ![first](Review/Interface.png)
+
 
 
    This application is a 2D adventure game where players fight enemies found on the map to clear the stage to adventure on the map and fight with monsters to clear the stage on a 2D land. Try to save your life from the monster and get more score as much as possible. If a player is attacked by the monster and his HP equals to 0, the player will die. So, the player will initialize a new game on the start of the map.	
    
    
-   ![first](Review/Interface.png)
+   
+   ![game](Review/land.png)
+
+
        
 ## Game's contain
  
@@ -17,27 +22,35 @@
    In this game, the player must type commands
 
 
+
    ![howtoplay](Review/HowToPlay.png)
+
 
 
    Try to catch items which are useful such as donut and health but, try to avoid the poison.
       
       
+      
    ![item](Review/HowToPlayTwo.png)
+ 
  
  
  ##### **Database System**
    This application has 'Database System' to collect name of each player and record the scores who got in this game.
    
    
+   
    ![enteryourname](Review/Enteryourname.png)
+ 
  
  
  ##### **Score System**
    This application has 'Score System' which can show the high-score board with top 5 players score when a player die or clear the stage, The system will record player's name and player's score. Players can see high-score board how much each player get score in this game.
    
    
+   
    ![highscore](Review/HighScore.png)
+   
    
    
  ##### **More button features**
@@ -52,7 +65,9 @@
 - Click 'Exit' button to stop playing this game.
     
     
+    
     ![exampleofbuttons](Review/YouDie.png)
+
 
 
  ## How to install the game?
@@ -116,7 +131,9 @@
   - 'Make .jar file' => use to merge all java classes and images file to be a file that can use to run the application.
      
      
+     
      ![jar](Review/Jarfile.png)
+
 
 
  ## What does we learn from doing this project?
@@ -143,3 +160,4 @@
   ## Contributors
    - Kornphon Noiprasert (6010545021)
    - Thanaphon Kaewjam (6010545781)
+   'Note**' This project created by two students in Software and Knowledge Engineering program, which this application is final project as part of Programming 1 course for first semester of Kasetsart University.
