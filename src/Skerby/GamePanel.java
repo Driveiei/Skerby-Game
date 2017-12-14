@@ -12,13 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
- * This class is GamePanel.
- * It is control about game(draw picture, movement, loop game).
+ * This class control about game(draw picture, movement, loop game) and
+ * This class is the center of many class of this game to call each class.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class GamePanel extends JPanel implements ActionListener {
 
 	private Timer time; // loop game
@@ -52,7 +51,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * This method works on draw all picture in this game.
+	 * This method works on draw all picture in this game and
+	 * close the frame when end game.
 	 */
 	@Override
 	public void paint(Graphics g) {
@@ -97,9 +97,6 @@ public class GamePanel extends JPanel implements ActionListener {
 			}
 
 			time.stop(); // end loop game.
-			g2d.setColor(Color.RED);
-			g2d.setFont(new Font("Angsana New", Font.BOLD, 64));
-			g2d.drawString("GAME OVER", 180, 240);
 			Game.dieP = new DiePanel();
 			Game.dieP.setVisible(true);
 			Game.window.dispose();
@@ -107,7 +104,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 	/**
-	 * This method works on action.
+	 * This method works on action. It can update
+	 * other class you want to run all the time.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

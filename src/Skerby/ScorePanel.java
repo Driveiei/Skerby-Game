@@ -16,12 +16,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
+ * This class draw scores on the frame that's get information from ScoreManager Class
+ * This class is the center of many scores class of this game to call each class. 
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class ScorePanel extends JPanel implements ActionListener {
 
 	private Image background = (new ImageIcon(this.getClass().getResource("/Images/Background/HighScore.png"))).getImage();
@@ -30,11 +30,18 @@ public class ScorePanel extends JPanel implements ActionListener {
 
 	private ScoreManager sm;
 
+	/*
+	 * This constructor calls other class to get score to this class.
+	 * */
 	public ScorePanel() {
 		sm = new ScoreManager();
 		nameAndScore = sm.getNameScores();
 	}
 
+	/**
+	 * This method works on draw all picture in this game 
+	 * and delete information of arraylist.
+	 */
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);

@@ -7,19 +7,19 @@ import java.awt.event.KeyEvent;
  * This class is key input control.
  * Extend this class to create a KeyEvent listener 
  * and override the methods for the events of interest.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class KeyInput extends KeyAdapter {
 
 	private Player p;
 
 	/**
-	 * This constructor is set p vale(Player type) to
+	 * This constructor is set p value (Player type) to
 	 * attribute.
-	 * @param p
+	 * 
+	 * @param p - Object of player.
 	 */
 	public KeyInput(Player p) {
 		this.p = p;

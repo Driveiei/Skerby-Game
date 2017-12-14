@@ -6,12 +6,11 @@
 package Skerby;
 
 /**
+ * This class collect the data of name and score.
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Score {
 
 	private String name;

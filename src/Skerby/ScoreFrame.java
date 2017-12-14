@@ -8,12 +8,12 @@ package Skerby;
 import javax.swing.JFrame;
 
 /**
+ * This class sets the option of Jframe you want and
+ * add and set information from another class to JFrame.
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class ScoreFrame {
 
     public static JFrame frame = new JFrame("Skerby Game");
@@ -22,12 +22,11 @@ public class ScoreFrame {
     public static DiePanel dieP;
 
     public static void main() {
-        frame.setSize(WIDTH, HEIGHT);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new ScorePanel());
-        frame.setResizable(false);
-        frame.setVisible(true);
+        frame.setSize(WIDTH, HEIGHT);//to set the size of JFrame.
+        frame.setLocationRelativeTo(null);//to set the location in the center of the desktop when play this game.
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//to be able to close the program.
+        frame.add(new ScorePanel());//to add and set information from another class to JFrame.
+        frame.setResizable(false);//to inhibit the player who wants to resize the frame.
+        frame.setVisible(true);// to makes the player can see this game and change to another frame.
     }
-
 }

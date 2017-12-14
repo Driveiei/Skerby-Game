@@ -1,12 +1,11 @@
 package Skerby;
 
 /**
- * This class is ItemsInterface.
+ * This class create a frame by netbeans to run to other class.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class ItemsInterface extends javax.swing.JFrame {
 
 	/**

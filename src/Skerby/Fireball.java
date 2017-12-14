@@ -3,16 +3,14 @@ package Skerby;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
- * This class is Fireball.
+ * This class collect the data of fireball and show the image of fireball.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Fireball {
 	
 	private Image fireball = (new ImageIcon(this.getClass().getResource("/Images/Player/fireball.png"))).getImage();
@@ -21,12 +19,13 @@ public class Fireball {
     private double y;
     
     private double speedX = 5;
-    
+
     /**
-     * This constructor is get x, y value from FireballManager class
-     * and set these to attribute in this class.
-     * @param x
-     * @param y
+     * This constructor gets x, y value from FireballManager class
+     * and set this to attribute in this class.
+     * 
+     * @param x - position of enemy in X line.
+     * @param y - position of enemy in Y line.
      */
     public Fireball(double x, double y){
     	this.x = x;
@@ -34,9 +33,10 @@ public class Fireball {
     }
     
     /**
-     * This method works on draw fireball with Graphics2D.
-     * @param g2d
-     */
+	 * This method works on draw fireball with Graphics2D.
+	 * 
+	 * @param g2d - Graphics2D to call Image's Object.
+	 */
     public void render(Graphics2D g2d){
         g2d.drawImage(fireball, (int)x, (int)y, null);
     }
@@ -50,16 +50,16 @@ public class Fireball {
     
     /**
      * Get x position of fireball.
-     * @return
+     * @return position of fireball.
      */
     public int getX(){
     	return (int)x;
     }
     
     /**
-     * Get bounds of fireball.
-     * @return
-     */
+	 * Get all fireball list.
+	 * @return all fireball list.
+	 */
     public Rectangle getFireballBounds(){
         return new Rectangle((int)x, (int)y, 64, 64);
     }

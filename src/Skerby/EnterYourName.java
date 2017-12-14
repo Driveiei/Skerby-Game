@@ -3,12 +3,11 @@ package Skerby;
 import javax.swing.JOptionPane;
 
 /**
- * This class is EnterYourName.
+ * This class create a frame by netbeans to run to other class.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class EnterYourName extends javax.swing.JFrame {
 
 	public static String yourName;

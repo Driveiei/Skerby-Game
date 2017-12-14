@@ -9,13 +9,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- * This class is Player.
- * It is manage about player.
+ * This class manage location, movement and attack of player and 
+ * check if player or fireball's position are intersects with 
+ * blocks, coins, enemies, and items.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Player {
 
 	private Image playerR = (new ImageIcon(this.getClass().getResource("/Images/Player/playerR.png"))).getImage();
@@ -63,7 +63,7 @@ public class Player {
 	/**
 	 * This constructor is get hp value and set to attribute
 	 * and set start position of player.
-	 * @param hp
+	 * @param hp - hp of player.
 	 */
 	public Player(int hp) {
 		x = 140;
@@ -73,7 +73,7 @@ public class Player {
 
 	/**
 	 * This method works on movement of player(move right/left, 
-	 * jump, collision, and attack).
+	 * jump, collision, and attack) and call check method of intersect location.
 	 */
 	public void update() {
 		if (right) {
@@ -141,7 +141,7 @@ public class Player {
 
 	/**
 	 * This method works on draw picture.
-	 * @param g2d
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		if (attack == true) {
@@ -159,12 +159,11 @@ public class Player {
 		// g3d.draw(getBoundsRight());
 		// g3d.draw(getBoundsLeft());
 		// g3d.draw(getBoundsTop());
-
 	}
 
 	/**
 	 * Get x position of player.
-	 * @return
+	 * @return position of player in X axis.
 	 */
 	public double getX() {
 		return x;
@@ -172,7 +171,7 @@ public class Player {
 
 	/**
 	 * Get y position of player.
-	 * @return
+	 * @return position of player in Y axis.
 	 */
 	public int getY() {
 		return (int) y;
@@ -180,7 +179,7 @@ public class Player {
 
 	/**
 	 * Get player height value.
-	 * @return
+	 * @return height of player.
 	 */
 	public int getPlayerHeight() {
 		return (int) playerHeight;
@@ -188,23 +187,23 @@ public class Player {
 
 	/**
 	 * Get player width value.
-	 * @return
+	 * @return width of player.
 	 */
 	public int getPlayerWidth() {
 		return (int) playerWidth;
 	}
 
 	/**
-	 * Get attack vale.
-	 * @return
+	 * Get attack value.
+	 * @return attack of player.
 	 */
 	public boolean getAttack() {
 		return attack;
 	}
 
 	/**
-	 * Get score vale.
-	 * @return
+	 * Get score value.
+	 * @return score of player.
 	 */
 	public static int getScore() {
 		return score;
@@ -212,16 +211,16 @@ public class Player {
 
 	/**
 	 * Get player hp value.
-	 * @return
+	 * @return hp of player.
 	 */
 	public int getPlayerHP() {
 		return playerHP;
 	}
 
 	/**
-	 * This method is check double jump .
+	 * This method checks if it can double jump.
 	 * If it can do return true, else return false.
-	 * @return
+	 * @return can jump twice or not.
 	 */
 	public boolean doubleJump() {
 		if (count <= 1) {
@@ -236,7 +235,7 @@ public class Player {
 	/**
 	 * This method works on when player hit button.
 	 * Use KeyEvent for check.
-	 * @param k
+	 * @param k - KeyEvent to call object KeyAdapter.
 	 */
 	public void keyPressed(KeyEvent k) {
 		int key = k.getKeyCode();
@@ -259,6 +258,7 @@ public class Player {
 	/**
 	 * This method works on when player release button.
 	 * Use KeyEvent for check.
+	 * @param k - KeyEvent to call object KeyAdapter.
 	 */
 	public void keyReleased(KeyEvent k) {
 		int key = k.getKeyCode();
@@ -276,8 +276,8 @@ public class Player {
 	}
 
 	/**
-	 * If palyer can jump return true, else return false.
-	 * @return
+	 * If player can jump (when on the blocks).
+	 * @return can jump or not.
 	 */
 	public boolean canJump() {
 		for (int i = 0; i < bl.size(); i++) {
@@ -291,7 +291,7 @@ public class Player {
 
 	/**
 	 * Get bound down of player.
-	 * @return
+	 * @return bound down of player.
 	 */
 	public Rectangle getBoundsDown() {
 		return new Rectangle((int) x + 5, (int) y + playerHeight,
@@ -300,7 +300,7 @@ public class Player {
 
 	/**
 	 * Get bound top of player.
-	 * @return
+	 * @return bound top of player.
 	 */
 	public Rectangle getBoundsTop() {
 		return new Rectangle((int) x + 11, (int) y + (playerHeight / 5),
@@ -309,7 +309,7 @@ public class Player {
 
 	/**
 	 * Get bound right of player.
-	 * @return
+	 * @return bound right of player.
 	 */
 	public Rectangle getBoundsRight() {
 		return new Rectangle((int) x + playerWidth - 8, (int) y
@@ -318,7 +318,7 @@ public class Player {
 
 	/**
 	 * Get bound left of player
-	 * @return
+	 * @return bound left of player.
 	 */
 	public Rectangle getBoundsLeft() {
 		return new Rectangle((int) x - 5, (int) y + (playerHeight / 4),
@@ -326,10 +326,11 @@ public class Player {
 	}
 
 	/**
-	 * Check player collision coin.
-	 * Return true when it is crash, else false.
-	 * @param i
-	 * @return
+	 * Check the location of player and coins that are intersect or not.
+	 * Return true when it crash, else false.
+	 * 
+	 * @param i - numbers of each coin.
+	 * @return intersect or not.
 	 */
 	public boolean coinOrNot(int i) {
 		if (getBoundsDown().intersects(cl.get(i).getCoinsBounds())) {
@@ -347,7 +348,7 @@ public class Player {
 
 	/**
 	 * This method works on collision coins.
-	 * If player are collision coin it will add score 10 point.
+	 * If player location intersects each coin it will add score 10 point.
 	 */
 	public void collisionCoins() {
 		for (int i = 0; i < cl.size(); i++) {
@@ -359,10 +360,11 @@ public class Player {
 	}
 
 	/**
-	 * Check player collision enemy.
-	 * Return true when it is crash, else false.
-	 * @param i
-	 * @return
+	 * Check the location of player and enemies that are intersect or not.
+	 * Return true when it crash, else false.
+	 * 
+	 * @param i - numbers of each enemy.
+	 * @return intersect or not.
 	 */
 	public boolean enemyOrNot(int i) {
 		if (getBoundsDown().intersects(el.get(i).getEnemyBounds())) {
@@ -380,9 +382,9 @@ public class Player {
 
 	/**
 	 * This method works on collision enemy.
-	 * If player are collision enemy it will give damage to player.
-	 * If player are attack them enemy will be remove from arraylist
-	 * then add score 15 point.
+	 * If location of player intersects each enemy it will give damage to player.
+	 * If player are attack and location of player intersects each enemy  
+	 * then, enemy will be remove from arraylist and add score 15 point.
 	 */
 	public void collisionEnemy() {
 		for (int i = 0; i < el.size(); i++) {
@@ -398,7 +400,8 @@ public class Player {
 	}
 
 	/**
-	 * This method works on collision blocks.
+	 * This method checks if location of player intersects
+	 * with blocks and set movement of player when intersect of each block.
 	 */
 	public void collisionBlocks() {
 		for (int i = 0; i < bl.size(); i++) {
@@ -429,8 +432,8 @@ public class Player {
 
 	/**
 	 * This method works on collision items.
-	 * If player are collision poison it will give damage to player.
-	 * If player are collison health it will add up hp to player.
+	 * If player's location intersects with poison it will decrease hp of player.
+	 * If player's location intersects with health it will increase hp of player.
 	 */
 	public void collisionItems() {
 		for (int i = 0; i < il.size(); i++) {
@@ -449,10 +452,10 @@ public class Player {
 	}
 
 	/**
-	 * Check player collision item.
-	 * Return true when it is crash, else false.
-	 * @param i
-	 * @return
+	 * Check player's location intersects with items or not.
+	 * Return true when it crash, else false.
+	 * @param i - numbers of each item.
+	 * @return intersects with item or not.
 	 */
 	public boolean itemOrNot(int i) {
 		if (getBoundsDown().intersects(il.get(i).getItemsBounds())) {
@@ -470,7 +473,8 @@ public class Player {
 
 	/**
 	 * This method works on fireball collision with enemy.
-	 * If it is collision enemy or x position of fireball more than 17700
+	 * If fireball's location intersects with enemy or 
+	 * x position of fireball more than 17700 in X-axis
 	 * then remove fireball.
 	 */
 	public void fireBallEnemy() {
@@ -493,8 +497,8 @@ public class Player {
 
 	/**
 	 * This method works on fireball collision with block.
-	 * If it is collision block or x position of fireball more than 17700
-	 * remove fireball.
+	 * If fireball's location intersects with block
+	 * or x position of fireball more than 17700 then remove fireball.
 	 */
 	public void fireBallBlock() {
 		for (int i = 0; i < bl.size(); i++) {

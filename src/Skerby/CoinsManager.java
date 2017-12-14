@@ -4,13 +4,11 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
- * This class is CoinsManager.
- * It works on creat donut.
+ * This class get command to manage and set location of all coins in this game.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class CoinsManager {
 
 	static ArrayList<Coins> coinsList = new ArrayList<>();
@@ -18,7 +16,8 @@ public class CoinsManager {
 	private Coins coins;
 
 	/**
-	 * This constructor is creat donut.
+	 * This constructor creates coin in each location 
+	 * that are set on parameters.
 	 */
 	public CoinsManager() {
 		for (int i = 0; i < 180; i += 60) {
@@ -119,8 +118,9 @@ public class CoinsManager {
 	/**
 	 * This method works on run order from coins list
 	 * and call render method from Coins class for
-	 * draw picture.
-	 * @param g2d
+	 * draw each coin's picture.
+	 * 
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		for (int i = 0; i < coinsList.size(); i++) {
@@ -130,24 +130,24 @@ public class CoinsManager {
 	}
 
 	/**
-	 * This method is add donut to array list.
-	 * @param c
+	 * This method adds coin to array list.
+	 * @param c - Object of each coin.
 	 */
 	public void addCoin(Coins c) {
 		coinsList.add(c);
 	}
 	
 	/**
-	 * This method is remove donut from array list.
-	 * @param c
+	 * This method is remove coin from array list.
+	 * @param c - Object of each coin.
 	 */
 	public void removeCoin(Coins c) {
 		coinsList.remove(c);
 	}
 
 	/**
-	 * Get size of coins list.
-	 * @return
+	 * Get all coins list.
+	 * @return all coins. 
 	 */
 	public static ArrayList<Coins> getCoinsBounds() {
 		return coinsList;

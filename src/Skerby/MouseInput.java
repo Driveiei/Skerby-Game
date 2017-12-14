@@ -9,12 +9,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
+ * The class sets about mouse position and set "interesting" mouse events 
+ * (press, release, click, enter, and exit) on a component. 
+ * (To track mouse moves and mouse drags, use the MouseMotionListener.) 
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class MouseInput implements MouseListener {
 
 	static boolean create = true;
@@ -28,13 +29,11 @@ public class MouseInput implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		int mouseX = e.getX();
 		int mouseY = e.getY();
-
 		if (mouseX >= 500 && mouseX <= 615) {
 			if (mouseY >= 315 && mouseY <= 430) {
 				if (create) {
 					ScoreFrame.frame.setVisible(false);
 					new Interface().setVisible(true);
-
 					ScoreFrame.frame.dispose();
 					create = false;
 				}

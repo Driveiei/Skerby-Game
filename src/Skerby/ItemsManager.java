@@ -4,13 +4,11 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
- * This class is ItemsManager.
- * It works on creat items.
+ * This class get command to manage and set location of all items in this game.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class ItemsManager {
 
 	static ArrayList<Items> itemsList = new ArrayList<>();
@@ -46,7 +44,7 @@ public class ItemsManager {
 	 * This method works on run order item list
 	 * about draw picture and call render method
 	 * from Items class for draw picture.
-	 * @param g2d
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		for (int i = 0; i < itemsList.size(); i++) {
@@ -57,7 +55,7 @@ public class ItemsManager {
 
 	/**
 	 * Add item to arraylist.
-	 * @param i
+	 * @param i - Object of item.
 	 */
 	public void addItem(Items i) {
 		itemsList.add(i);
@@ -65,7 +63,7 @@ public class ItemsManager {
 
 	/**
 	 * Remove item from arraylist.
-	 * @param i
+	 * @param i - Object of item.
 	 */
 	public void removeItem(Items i) {
 		itemsList.remove(i);
@@ -73,7 +71,7 @@ public class ItemsManager {
 
 	/**
 	 * Get size of item list.
-	 * @return
+	 * @return all items.
 	 */
 	public static ArrayList<Items> getItemsBounds() {
 		return itemsList;

@@ -4,13 +4,11 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
- * This class is EnemyManager.
- * It works on creat enemy.
+ * This class get command to manage and set location of all enemy in this game.
+ *
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class EnemyManager {
 
 	static ArrayList<Enemy> enemyList = new ArrayList<>();
@@ -18,7 +16,7 @@ public class EnemyManager {
 	private Enemy enemy;
 
 	/**
-	 * This constructor is crear enemy with
+	 * This constructor create enemy with
 	 * x position, y position, and axis movement.
 	 */
 	public EnemyManager() {
@@ -58,8 +56,8 @@ public class EnemyManager {
 	/**
 	 * This method works on run order from enemylist
 	 * and call render method from Enemy class for
-	 * draw picture.
-	 * @param g2d
+	 * draw each enemy's picture.
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		for (int i = 0; i < enemyList.size(); i++) {
@@ -71,7 +69,7 @@ public class EnemyManager {
 	/**
 	 * This method works on run order from enemy list
 	 * about movement and call update method from Enemy class
-	 * for update movement.
+	 * for update movement all the time.
 	 */
 	public void update() {
 		for (int i = 0; i < enemyList.size(); i++) {
@@ -82,7 +80,7 @@ public class EnemyManager {
 
 	/**
 	 * Add enemy to arraylist.
-	 * @param e
+	 * @param e - Object of each enemy.
 	 */
 	public void addEnemy(Enemy e) {
 		enemyList.add(e);
@@ -90,15 +88,15 @@ public class EnemyManager {
 
 	/**
 	 * Remove enemy frome arraylist.
-	 * @param e
+	 * @param e - Object of each enemy.
 	 */
 	public void removeEnemy(Enemy e) {
 		enemyList.remove(e);
 	}
 
 	/**
-	 * Get size arraylist.
-	 * @return
+	 * Get all enemy list.
+	 * @return all enemy list.
 	 */
 	public static ArrayList<Enemy> getEnemyListBounds() {
 		return enemyList;

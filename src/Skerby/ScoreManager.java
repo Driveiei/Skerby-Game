@@ -15,12 +15,12 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 
 /**
+ * This class manage score, collect score, load score
+ * from text file, sort the score, and write data into a file .
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class ScoreManager {
 
 	private List<Score> nameAndScore = new ArrayList<>();
@@ -28,13 +28,22 @@ public class ScoreManager {
 	private Player player;
 	private EnterYourName eyn;
 
+	/*
+	 * This constructor call read text file method
+	 * and sort score method.
+	 */
 	public ScoreManager() {
 		loadTextScore();
 		sortScore();
 	}
 
+	/**
+	 * This method load information from text file and 
+	 * check if cannot load a file or cannot find file location. 
+	 */
 	private InputStream readTextScore() {
-		String filename = "score.txt";
+		//if jar file (score.txt)
+		String filename = "data/score.txt";
 		ClassLoader loader = ScoreManager.class.getClassLoader();
 		InputStream in = loader.getResourceAsStream(filename);
 		if (in == null) {
@@ -44,6 +53,10 @@ public class ScoreManager {
 		return in;
 	}
 
+	/**
+	 * This method read name and score from text file
+	 * and collect the data into arraylist.
+	 */
 	public void loadTextScore() {
 		InputStream in = readTextScore();
 		Scanner readText = new Scanner(in);
@@ -60,8 +73,13 @@ public class ScoreManager {
 		readText.close();
 	}
 
+	/*
+	 * This method record the name and score of player
+	 * when player end game in each round to text file.
+	 * */
 	public static void recordScore() {
-		String outputfile = "score.txt";
+		//if jar file(score.txt)
+		String outputfile = "src/data/score.txt";
 		OutputStream out = null;
 		try {
 			out = new FileOutputStream(outputfile, true);
@@ -75,6 +93,10 @@ public class ScoreManager {
 
 	}
 
+	/*
+	 * This method sorts score from arraylist and manage to array
+	 * to prepare score in the board.
+	 * */
 	public void sortScore() {
 		boolean check = true;
 		outerloop: for (int round = 0; round < 5; round++) {
@@ -95,10 +117,17 @@ public class ScoreManager {
 		}
 	}
 
+	/**
+	 * get top 5 scores and names from text file with sort scores.
+	 * @return 5 names and scores of players.
+	 */
 	public Score[] getNameScores() {
 		return fiveScore;
 	}
 
+	/*
+	 * This method deletes information in arraylist.
+	 * */
 	public void deleteInformation() {
 		for (int i = 0; i < nameAndScore.size(); i++) {
 			nameAndScore.remove(i);

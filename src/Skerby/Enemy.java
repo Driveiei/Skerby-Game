@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
- * This class is Enemy.
+ * This class collect the data of enemies and show the image of each enemy.
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Enemy {
 
 	private Image enemyR = (new ImageIcon(this.getClass().getResource("/Images/Enemy/EnemyR.png"))).getImage();
@@ -36,10 +34,11 @@ public class Enemy {
 	private String type;
 
 	/**
-     * This constructor is get x, y value and movement axis from EnemyManager class
+     * This constructor gets x, y value and movement axis from EnemyManager class
      * then set these value to attribute in this class.
-     * @param x
-     * @param y
+     * 
+     * @param x - position of enemy in X line.
+     * @param y - position of enemy in Y line.
      */
 	public Enemy(double x, double y, String type) {
 		this.x = x;
@@ -49,7 +48,7 @@ public class Enemy {
 
 	/**
 	 * This method works on draw enemy with Graphics2D.
-	 * @param g2d
+	 * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		if (right == true && type.equals("x")) {
@@ -64,7 +63,7 @@ public class Enemy {
 	}
 
 	/**
-	 * This method works on enemy movement
+	 * This method manages enemy movement.
 	 */
 	public void update() {
 		if (type.equals("x")) {
@@ -125,7 +124,7 @@ public class Enemy {
 
 	/**
 	 * Get x position of enemy.
-	 * @return
+	 * @return Position X in each enemy.
 	 */
 	public int getX() {
 		return (int) x;
@@ -133,7 +132,7 @@ public class Enemy {
 
 	/**
 	 * Get bounds of enemy.
-	 * @return
+	 * @return bounds of enemy.
 	 */
 	public Rectangle getEnemyBounds() {
 		return new Rectangle((int) x, (int) y, 64, 64);

@@ -3,12 +3,11 @@ package Skerby;
 import java.awt.Graphics2D;
 
 /**
- * This class is GameStateManager.
+ * This class manage the stage of each level.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class GameStateManager {
 
 	private Level1 level1;
@@ -23,7 +22,7 @@ public class GameStateManager {
 	/**
 	 * This method works on draw picture.
 	 * It is call render methd frome level1 class then draw map.
-	 * @param g2d
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		level1.render(g2d);

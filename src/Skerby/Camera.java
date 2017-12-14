@@ -1,13 +1,11 @@
 package Skerby;
 
 /**
- * This class is camera control.
+ * This class is camera control to manage camera to focus the player movement.
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Camera {
 
 	private double x;
@@ -16,8 +14,8 @@ public class Camera {
 	/**
 	 * This constructor is get x, y value and set these value
 	 * to attribute in this class.
-	 * @param x
-	 * @param y
+	 * @param x - position of camera in X line.
+	 * @param y - position of camera in Y line.
 	 */
 	public Camera(double x, double y) {
 		this.x = x;
@@ -28,7 +26,7 @@ public class Camera {
 	 * This method works on camera movement.
 	 * When player is move to the right the camera will move to the left,
 	 * If player is move to the left the camera will move to the right.
-	 * @param p
+	 * @param p - the object of the player.
 	 */
 	public void update(Player p) {
 		x = -p.getX() + Game.WIDTH / 5;
@@ -39,7 +37,7 @@ public class Camera {
 	
 	/**
 	 * Get x position of camera.
-	 * @return
+	 * @param x - position of camera in X line.
 	 */
 	public double getX() {
 		return x;
@@ -47,7 +45,7 @@ public class Camera {
 
 	/**
 	 * Get y position of camera.
-	 * @return
+	 * @param y - position of camera in Y line.
 	 */
 	public double getY() {
 		return y;

@@ -5,13 +5,12 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 /**
- * This class is Level1.
- * It is manage about level1 map.
+ * This class is Level1. It's manage about level1 map and contains of
+ * blocks in level1.
+ *
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Level1 {
 
 	private Image warpgate = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/WarpGate.png"))).getImage();
@@ -87,7 +86,7 @@ public class Level1 {
 
 	/**
 	 * This method works on draw warp gate.
-	 * @param g2d
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		g2d.drawImage(warpgate, 118, 200, null);

@@ -6,12 +6,11 @@
 package Skerby;
 
 /**
+ * This class create a frame by netbeans to run to other class.
  * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Interface extends javax.swing.JFrame {
 
 	/**

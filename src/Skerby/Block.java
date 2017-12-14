@@ -6,40 +6,37 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 /**
- * This class is Block.
+ * This class collect the data of blocks and show the image of each block.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Block {
 
-	private Image blockDown = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorDown.png"))).getImage();
-	private Image blockDownLeft = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorDownLeft.png"))).getImage();
-	private Image blockDownRight = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorDownRight.png"))).getImage();
-	private Image blockInside = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorInside.png"))).getImage();
-	private Image blockLeft = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorLeft.png"))).getImage();
-	private Image blockRight = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorRight.png"))).getImage();
-	private Image blockTopLeft = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorTopLeft.png"))).getImage();
-	private Image blockTopRight = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorTopRight.png"))).getImage();
-	private Image blockTop = (new ImageIcon(this.getClass().getResource(
-			"/Images/StateLV1/FloorUp.png"))).getImage();
+	private Image blockDown = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorDown.png"))).getImage();
+	private Image blockDownLeft = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorDownLeft.png")))
+			.getImage();
+	private Image blockDownRight = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorDownRight.png")))
+			.getImage();
+	private Image blockInside = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorInside.png")))
+			.getImage();
+	private Image blockLeft = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorLeft.png"))).getImage();
+	private Image blockRight = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorRight.png")))
+			.getImage();
+	private Image blockTopLeft = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorTopLeft.png")))
+			.getImage();
+	private Image blockTopRight = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorTopRight.png")))
+			.getImage();
+	private Image blockTop = (new ImageIcon(this.getClass().getResource("/Images/StateLV1/FloorUp.png"))).getImage();
 
 	private int x;
 	private int y;
 
 	/**
+	 * Constructor of location of each block.
 	 * 
-	 * @param x
-	 * @param y
+	 * @param x - position of block in X line.
+	 * @param y - position of block in Y line.
 	 */
 	public Block(int x, int y) {
 		this.x = x;
@@ -47,9 +44,10 @@ public class Block {
 	}
 
 	/**
+	 * This method paint the colors(get image) with order of each block.
 	 * 
-	 * @param g2d
-	 * @param i
+	 * @param g2d - Graphics2D to call Image's Object.
+	 * @param i - the order of the blocks.
 	 */
 	public void render(Graphics2D g2d, int i) {
 		if (i < 55) {
@@ -278,7 +276,8 @@ public class Block {
 
 	/**
 	 * get x position.
-	 * @return
+	 *
+	 * @return x - position of block in X line.
 	 */
 	public int getX() {
 		return x;
@@ -286,7 +285,8 @@ public class Block {
 
 	/**
 	 * get y position.
-	 * @return
+	 * 
+	 * @return y - position of block in Y line.
 	 */
 	public int getY() {
 		return y;

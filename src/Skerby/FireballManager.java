@@ -4,13 +4,11 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 /**
- * This class is FireballManager.
- * It works on creat fireball.
+ * This class get command to manage and set location of fireball in this game.
+ *
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class FireballManager {
 
 	static ArrayList<Fireball> fireballList = new ArrayList<>();
@@ -24,9 +22,10 @@ public class FireballManager {
 	}
 
 	/**
-	 * This constructor is check size of fireball list, if less than 1 add fireball.
+	 * This constructor checks size of fireball list, if fireball less than 1 then add fireball.
 	 * You can add only 1 fireball.
-	 * @param player
+	 * 
+	 * @param player - Object of player to show location pf player.
 	 */
 	public FireballManager(Player player) {
 		if (fireballList.size() < 1) {
@@ -36,8 +35,9 @@ public class FireballManager {
 
 	/**
 	 * This method works on run order from fireball list
-	 * about draw picture and call render method from Fireball class.
-	 * @param g2d
+	 * about draw fireball picture and call render method from Fireball class.
+	 * 
+     * @param g2d - Graphics2D to call Image's Object.
 	 */
 	public void render(Graphics2D g2d) {
 		for (int i = 0; i < fireballList.size(); i++) {
@@ -60,7 +60,7 @@ public class FireballManager {
 
 	/**
 	 * Add fireball to arraylist.
-	 * @param a
+	 * @param a - Object of fireball.
 	 */
 	public void addFireball(Fireball a) {
 		fireballList.add(a);
@@ -68,7 +68,7 @@ public class FireballManager {
 
 	/**
 	 * Remove fireball from arraylist.
-	 * @param a
+	 * @param a - Object of fireball.
 	 */
 	public void removeFireball(Fireball a) {
 		fireballList.remove(a);

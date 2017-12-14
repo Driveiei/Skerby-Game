@@ -6,12 +6,11 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 /**
- * This class is item.
+ * This class collect the data of items and show the image of each item.
+ * 
  * @author Kornphon Noiprasert
  * @author Thanaphon Keawjam
- *
  */
-
 public class Items {
 
 	private Image poison = (new ImageIcon(this.getClass().getResource("/Images/Items/poison.png"))).getImage();
@@ -25,9 +24,10 @@ public class Items {
 	/**
 	 * This constructor is get x, y vale and type of item(poison or health),
 	 * and set these to attribute in this class.
-	 * @param x
-	 * @param y
-	 * @param type
+	 * 
+	 * @param x - position of coin in X line.
+	 * @param y - position of coin in Y line.
+	 * @param type - type of health or poison.
 	 */
 	public Items(double x, double y, String type) {
 		this.x = x;
@@ -36,9 +36,10 @@ public class Items {
 	}
 
 	/**
-	 * This method works on draw item with Graphics2D.
-	 * @param g2d
-	 */
+     * This method works on draw coin with Graphics2D.
+     * 
+     * @param g2d - Graphics2D to call Image's Object.
+     */
 	public void render(Graphics2D g2d) {
 		if (type.equals("poison")) {
 			g2d.drawImage(poison, (int) x, (int) y, null);
@@ -50,7 +51,8 @@ public class Items {
 
 	/**
 	 * Get type of item.
-	 * @return
+	 * 
+	 * @return type of item.
 	 */
 	public String getType() {
 		return type;
@@ -58,7 +60,7 @@ public class Items {
 
 	/**
 	 * Get bounds of item.
-	 * @return
+	 * @return bounds of item.
 	 */
 	public Rectangle getItemsBounds() {
 		return new Rectangle((int) x, (int) y, 45, 45);
