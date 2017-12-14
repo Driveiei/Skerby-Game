@@ -57,7 +57,7 @@ public class Attack {
                     right = false;
                 }
             }
-        }else {
+        } else {
             right = true;
             left = false;
             count++;

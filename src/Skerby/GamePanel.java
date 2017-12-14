@@ -30,6 +30,8 @@ public class GamePanel extends JPanel implements ActionListener{
 	private EnemyManager em;
 	private GameStateManager gsm;
         private AttackManager am;
+        private ScoreManager sm;
+        
 
 	
 //	private BlockManager bm;
@@ -63,14 +65,11 @@ public class GamePanel extends JPanel implements ActionListener{
 		em.render(g2d);
                 //bm.render(g2d);
                 am.render(g2d);
-
-		
+                
 		g2d.translate(-camera.getX(), -camera.getY()); //end camera
-		
 		g2d.setColor(Color.BLACK);
 		g2d.setFont(new Font("Fluo_Gums", Font.BOLD, 20));
 		g2d.drawString("Score : " + player.getScore(), 510, 30);
-                
 		g2d.drawString(EnterYourName.yourName, 0, 50);
 		g2d.drawRect(0, 0, 500, 32);
 		g2d.setColor(Color.decode("#404040"));
@@ -79,21 +78,22 @@ public class GamePanel extends JPanel implements ActionListener{
 		g2d.fillRect(0, 0, player.getPlayerHP()*5, 32);
                 
                 
-		if (player.getPlayerHP() == 0){
-                     
-                for(int i = 0; i<cm.coinsList.size();i++){
-                cm.coinsList.remove(i);
-                }
-                for(int i = 0; i<em.enemyList.size();i++){
-                em.enemyList.remove(i);
-                }
-		time.stop();
-		g2d.setColor(Color.RED);
-		g2d.setFont(new Font("Angsana New", Font.BOLD, 64));
-		g2d.drawString("GAME OVER", 180, 240);
-                Game.dieP = new DiePanel();
-                Game.dieP.setVisible(true);
-                Game.window.dispose();
+		if (player.getPlayerHP() <= 0){
+                     //fixbug
+
+                    for(int i = 0; i<cm.coinsList.size();){
+                        cm.coinsList.remove(i);
+                    }
+                    for(int i = 0; i<em.enemyList.size();){
+                         em.enemyList.remove(i);
+                    }
+                    time.stop();
+                    g2d.setColor(Color.RED);
+                    g2d.setFont(new Font("Angsana New", Font.BOLD, 64));
+                    g2d.drawString("GAME OVER", 180, 240);
+                    Game.dieP = new DiePanel();
+                    Game.dieP.setVisible(true);
+                    Game.window.dispose();
 		}
 	}
 

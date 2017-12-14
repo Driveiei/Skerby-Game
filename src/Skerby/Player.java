@@ -38,6 +38,10 @@ public class Player {
     private CoinsManager cm;
     //add
     private AttackManager am;
+    
+    private double starterJump = -100;
+    private boolean inAir = false;
+    private int bugJump = 100;
 
     private int score = 0;
     
@@ -61,7 +65,8 @@ public class Player {
     }
     
     public void update(){
-        System.out.println(currentJumpSpeed);
+//        System.out.print("Falling =");
+//        System.out.println(currentFallSpeed);
         if (right){
             x += 4;
         }
@@ -80,8 +85,36 @@ public class Player {
                 falling = true;
             }
         }
+        
+//        if(count == 1 && currentJumpSpeed > 1.4 && currentJumpSpeed < 1.5){
+//                jumping = false;
+//                falling = true;
+//        }
+//        
+//        if(count == 1 && currentJumpSpeed > 2.1 && currentJumpSpeed < 2.2){
+//                jumping = false;
+//                falling = true;
+//        }
+
+        if(y < starterJump+0.1 && count == 1 && currentFallSpeed > 5){
+            jumping = false;
+            falling = true;
+            currentFallSpeed = 4;
+        }
+        
+        if(currentJumpSpeed >0.1 && currentJumpSpeed < 5.9){
+            inAir =true;
+        }
+        
+        if(count == 2){
+            bugJump = 2;
+        } else {
+            bugJump = 3;
+        }
+
         if (falling){
             y += currentFallSpeed;
+            
             if (currentFallSpeed < maxFallSpeed){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                 currentFallSpeed += 0.15;
             }
@@ -107,7 +140,7 @@ public class Player {
 //            Game.dieP = new DiePanel();
 //            Game.dieP.setVisible(true);
 //            Game.window.dispose();
-            //JOptionPane.showMessageDialog(null, EnterYourName.yourName+" is die.");
+//            JOptionPane.showMessageDialog(null, EnterYourName.yourName+" is die.");
 //            Object[] options = {"Yes, please",
 //                    "No, thanks",
 //                    "No eggs, no ham!"};
@@ -177,6 +210,8 @@ public class Player {
     
     public boolean doubleJump(){
     	if(count <= 1 ){
+                //may be bug 
+                currentJumpSpeed += 0.5;
     		falling = false;
     		return true;
     	}else{
@@ -193,7 +228,8 @@ public class Player {
             right = true;
         }
         if ((key == KeyEvent.VK_SPACE || key == KeyEvent.VK_UP) && (canJump() || doubleJump()) ){
-        	count++;
+            count++;
+            starterJump = y;
             jumping = true;
         }
         if (key == KeyEvent.VK_Z){
@@ -312,8 +348,12 @@ public class Player {
             if (getBoundsDown().intersects(bl.get(i).getBlockBounds())){
                 //currentFallSpeed = 0; 
                 //currentJumpSpeed = 6;
+                
                 currentFallSpeed = 0; //original
-                currentJumpSpeed = 6;                
+                //if(count != 2 && jumping == false){
+                if(falling){
+                currentJumpSpeed = 6; 
+                }// }
             	//y -= currentJumpSpeed;
             }
         }

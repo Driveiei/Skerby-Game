@@ -5,12 +5,16 @@
  */
 package Skerby;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DELL
  */
 public class EnterYourName extends javax.swing.JFrame {
+
     public static String yourName;
+
     /**
      * Creates new form EnterYourName
      */
@@ -76,10 +80,13 @@ public class EnterYourName extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false); 
-        Game.main();
         EnterYourName.yourName = jTextField1.getText();
-
+        if (jTextField1.getText().length() < 12) {
+            this.setVisible(false);
+            Game.main();
+        } else {
+            JOptionPane.showMessageDialog(null, "Character name should below 12 alphabetc haracters.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -116,10 +123,10 @@ public class EnterYourName extends javax.swing.JFrame {
                 new EnterYourName().setVisible(true);
             }
         });
-        
+
     }
-    
-    public String getName(){
+
+    public String getName() {
         return yourName;
     }
 

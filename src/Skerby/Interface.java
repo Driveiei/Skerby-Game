@@ -55,7 +55,7 @@ public class Interface extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(130, 410, 390, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Skerby-Game\\Images\\Background\\Interface.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Skerby/Interface.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 640, 480);
 

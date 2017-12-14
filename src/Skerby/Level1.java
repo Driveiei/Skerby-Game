@@ -19,30 +19,30 @@ public class Level1 {
     private BlockManager bm;
     
     static ArrayList<Block> blockList = new ArrayList<>();
-    
-    public Level1(){
-    	bm = new BlockManager();
-    	bm = new BlockManager(10, 405, 30, 1);
-    	bm = new BlockManager(1765, 405, 25, 1);
-    	bm = new BlockManager(10, 0, 150, 1);
-		
-    	bm = new BlockManager(10, 0, 1, 10);
-    	bm = new BlockManager(550, 135, 5, 1);
-    	bm = new BlockManager(955, 225, 6, 1);
-    	bm = new BlockManager(1360, 135, 2, 5);
-    	bm = new BlockManager(1450, 180, 4, 2);
-    	bm = new BlockManager(1855, 45, 2, 6);
-    	bm = new BlockManager(1945, 270, 2, 1);
-    	bm = new BlockManager(2170, 135, 5, 6);
-    	bm = new BlockManager(2800, 180, 20, 1);
-    	bm = new BlockManager(3970, 180, 2, 1);
-    	bm = new BlockManager(5320, 270, 2, 1);
-    	bm = new BlockManager(5635, 225, 2, 1);
 
-    	bm = new BlockManager(550, 270, 3,5 ,"Stair"); // x,y,height,width
-    	bm = new BlockManager(2395, 180, 5,1 ,"Stair"); // x,y,height,width
-    	bm = new BlockManager(3610, 45, 4,1 ,"Stair"); // x,y,height,width
-    	bm = new BlockManager(4330, 270, 4,15 ,"Stair"); // x,y,height,width
+    public Level1() {
+        bm = new BlockManager();
+        bm = new BlockManager(10, 405, 30, 1);
+        bm = new BlockManager(1765, 405, 25, 1);
+        bm = new BlockManager(10, 0, 150, 1);
+
+        bm = new BlockManager(10, 0, 1, 10);
+        bm = new BlockManager(550, 135, 5, 1);
+        bm = new BlockManager(955, 225, 6, 1);
+        bm = new BlockManager(1360, 135, 2, 5);
+        bm = new BlockManager(1450, 180, 4, 2);
+        bm = new BlockManager(1855, 45, 2, 6);
+        bm = new BlockManager(1945, 270, 2, 1);
+        bm = new BlockManager(2170, 135, 5, 6);
+        bm = new BlockManager(2800, 180, 20, 1);
+        bm = new BlockManager(3970, 180, 2, 1);
+        bm = new BlockManager(5320, 270, 2, 1);
+        bm = new BlockManager(5635, 225, 2, 1);
+
+        bm = new BlockManager(550, 270, 3, 5, "Stair"); // x,y,height,width
+        bm = new BlockManager(2395, 180, 5, 1, "Stair"); // x,y,height,width
+        bm = new BlockManager(3610, 45, 4, 1, "Stair"); // x,y,height,width
+        bm = new BlockManager(4330, 270, 4, 15, "Stair"); // x,y,height,width
 
     	bm = new BlockManager(3070,405,30,5,5);
     }

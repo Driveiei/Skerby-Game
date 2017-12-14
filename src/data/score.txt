@@ -1,0 +1,19 @@
+#This text save all player's score
+Drive , 2000
+tonggggg , 500
+Happy , 200
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
+s , 5
