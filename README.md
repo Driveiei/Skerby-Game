@@ -71,7 +71,7 @@
 
 
  ## How to install the game?
- - Download and clone [SkerbyGame](https://github.com/Driveiei/Skerby-Game2).
+ - Download and clone [SkerbyGame](https://github.com/Driveiei/Skerby-Game).
  - Search SkerbyGame/dist folders and click Skerby.jar to play this game (in dist folder must have score.txt and Skerby.jar).
   'Note' To run this application, your computer must has Java version 8 or newer.
 
