@@ -21,14 +21,14 @@ import javax.swing.JPanel;
  */
 public class ScorePanel extends JPanel implements ActionListener {
 
-    private Image background = new ImageIcon("Images/Background/HighScore.png").getImage();
+	private Image background = (new ImageIcon(this.getClass().getResource("/Images/Background/HighScore.png"))).getImage();
+
     private static Score[] nameAndScore = new Score[5];
     private ScoreManager sm;
 
     public ScorePanel() {
         sm = new ScoreManager();
         nameAndScore = sm.getNameScores();
-        System.out.println("=========================================================");
     }
 
     @Override

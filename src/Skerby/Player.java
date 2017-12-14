@@ -11,10 +11,14 @@ import javax.swing.JOptionPane;
 
 public class Player {
 	
-    private Image playerR = new ImageIcon("Images\\Player\\playerR.png").getImage();
-    private Image playerJump = new ImageIcon("Images\\Player\\playerJump.png").getImage();
-    private Image playerAtk = new ImageIcon("Images\\Player\\playerAtk.png").getImage();
-    private Image playerAtkStar = new ImageIcon("Images\\Player\\Fireballtwo.png").getImage();
+//    private Image playerR = new ImageIcon("src/Images/Player/playerR.png").getImage();
+//    private Image playerJump = new ImageIcon("src/Images/Player/playerJump.png").getImage();
+//    private Image playerAtk = new ImageIcon("src/Images/Player/playerAtk.png").getImage();
+//    private Image playerAtkStar = new ImageIcon("src/Images/Player/Fireballtwo.png").getImage();
+	private Image playerR = (new ImageIcon(this.getClass().getResource("/Images/Player/playerR.png"))).getImage();
+	private Image playerJump = (new ImageIcon(this.getClass().getResource("/Images/Player/playerJump.png"))).getImage();
+	private Image playerAtk = (new ImageIcon(this.getClass().getResource("/Images/Player/playerAtk.png"))).getImage();
+	private Image playerAtkStar = (new ImageIcon(this.getClass().getResource("/Images/Player/Fireballtwo.png"))).getImage();
 
 //    private Image playerAtk2 = new ImageIcon("Images/Player/playerAtk2.png").getImage();
     
@@ -37,18 +41,24 @@ public class Player {
     private EnemyManager em;
     private CoinsManager cm;
     //add
-    private AttackManager am;
+    //private AttackManager am;
+    private FireballManager fbm;
+    private ItemsManager im;
+    
     
     private double starterJump = -100;
     private boolean inAir = false;
     private int bugJump = 100;
 
-    private static int score = 0;
+    static int score = 0;
     
     static ArrayList<Coins> cl = CoinsManager.getCoinsBounds();
     static ArrayList<Enemy> el = EnemyManager.getEnemyListBounds();
-    static ArrayList<Attack> al = AttackManager.getFireBounds();
-
+//    static ArrayList<Attack> al = AttackManager.getFireBounds();
+    //add
+    static ArrayList<Fireball> fbl = FireballManager.getFireballBounds();
+    static ArrayList<Items> il = ItemsManager.getItemsBounds();
+    
     //new
     static ArrayList<Block> bl = BlockManager.getBlocksBounds();
     private final int playerWidth = 64;
@@ -74,7 +84,7 @@ public class Player {
             x -= 4;
         }
         if (attack){
-		am = new AttackManager(this); // oneRound
+		fbm = new FireballManager(this); // oneRound
         }
         if (jumping){
             y -= currentJumpSpeed;
@@ -123,7 +133,7 @@ public class Player {
             currentFallSpeed = 0.1;
         }
         if (x < 140) x = 140;
-        if (x > 5900) x = 5900;
+        if (x > 17700) x = 17700; // change
         //new
         if (y > 450) {
             playerHP = 0;
@@ -136,6 +146,8 @@ public class Player {
         colisionBlocks();
         fireBallEnemy();
         fireBallBlock();
+        colisionItems();
+//add
         if(playerHP <= 0){
 
 //            Game.dieP = new DiePanel();
@@ -168,8 +180,8 @@ public class Player {
         if (jumping == true) {
             g2d.drawImage(playerJump, (int)x, (int)y, null);
         }else if (attack == true){
-        	g2d.drawImage(playerAtk, (int)x, (int)y, null);
-                am.render(g2d);
+        	g2d.drawImage(playerR, (int)x, (int)y, null);
+                fbm.render(g2d);
         }else {
             g2d.drawImage(playerR, (int)x, (int)y, null);
         }
@@ -380,17 +392,49 @@ public class Player {
         }
     }
     
+    public void colisionItems() {
+        for (int i = 0; i < il.size(); i++) {
+            if (itemOrNot(i) == true && il.get(i).getType().equals("poison")) {
+                playerHP -= 10;
+                il.remove(i);
+            }else   if (itemOrNot(i) == true && il.get(i).getType().equals("health")) {
+                playerHP += 15;
+                il.remove(i);
+                if (playerHP > 100) {
+                    playerHP = 100;
+                }
+            }
+        }
+    }
+
+    public boolean itemOrNot(int i) {
+        if (getBoundsDown().intersects(il.get(i).getItemsBounds())) {
+            return true;
+        } else if (getBoundsTop().intersects(il.get(i).getItemsBounds())) {
+            return true;
+        } else if (getBoundsRight().intersects(il.get(i).getItemsBounds())) {
+            return true;
+        } else if (getBoundsLeft().intersects(il.get(i).getItemsBounds())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public void fireBallEnemy(){
         for (int i = 0; i < el.size(); i++){
 //            if  (getPlayerBounds().intersects(el.get(i).getEnemyBounds())){
             //new
 
                 try{
-                    if (al.get(0).getFireBounds().intersects(el.get(i).getEnemyBounds())){	
+                    if (fbl.get(0).getFireballBounds().intersects(el.get(i).getEnemyBounds())){	
                     el.remove(i);
-                    al.remove(0);
+                    fbl.remove(0);
                     score += 15;
                 }
+                    if (fbl.get(0).getX() > 17700) {
+                        fbl.remove(0);
+                    }
                 }catch(Exception e){
                     
                 }
@@ -399,17 +443,20 @@ public class Player {
     }
     
     public void fireBallBlock(){
-        for (int i = 0; i < bl.size(); i++){
-                try{
-                    if (al.get(0).getFireBounds().intersects(bl.get(i).getBlockBounds())){	
-                    al.remove(0);
-                    }
-                }catch(Exception e){
-                    
-                }
-            
-        }
-    }
+    	 for (int i = 0; i < bl.size(); i++) {
+             try {
+                 if (fbl.get(0).getFireballBounds().intersects(bl.get(i).getBlockBounds())) {
+                     fbl.remove(0);
+                 }
+                 if (fbl.get(0).getX() > 17700) {
+                     fbl.remove(0);
+                 }
+             } catch (Exception e) {
+
+             }
+
+         }
+     }
     
 
 }

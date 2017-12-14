@@ -67,8 +67,8 @@ public class EnterYourName extends javax.swing.JFrame {
         jTextField1.setBounds(180, 200, 310, 40);
         jTextField1.getAccessibleContext().setAccessibleName("");
         jTextField1.getAccessibleContext().setAccessibleDescription("");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\Skerby-Game\\Images\\Background\\EnterYourName.png")); // NOI18N
+//        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Background/YouDie.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Background/EnterYourName.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 640, 480);
 

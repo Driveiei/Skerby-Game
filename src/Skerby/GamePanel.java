@@ -7,9 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -22,14 +20,20 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	/*
 	 * import image background.
-	 */
-	private Image background = new ImageIcon("Images/Background/bglevel1.png").getImage();
+	 */ // new ImageIcon(this.getClass().getResource("/Image/roll1.png"));
+	// private Image background = new
+	// ImageIcon("src/Skerby/Images/Background/bglevel1.png").getImage();
+	private Image background = (new ImageIcon(this.getClass().getResource("/Images/Background/bglevel1.png")))
+			.getImage();
+
 	private Player player;
 	private Camera camera;
 	private CoinsManager cm;
 	private EnemyManager em;
 	private GameStateManager gsm;
-	private AttackManager am;
+	// add
+	private FireballManager fbm;
+	private ItemsManager im;
 	private ScoreManager sm;
 
 	// private BlockManager bm;
@@ -40,7 +44,9 @@ public class GamePanel extends JPanel implements ActionListener {
 		camera = new Camera(0, 0);
 		cm = new CoinsManager();
 		// bm = new BlockManager();
-		am = new AttackManager(player); // oneRound
+		// add
+		fbm = new FireballManager();
+		im = new ItemsManager();
 
 		em = new EnemyManager(); // oneRound
 		gsm = new GameStateManager();
@@ -55,14 +61,20 @@ public class GamePanel extends JPanel implements ActionListener {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.translate(camera.getX(), camera.getY()); // start camera
 
-		g2d.drawImage(background, 0, -30, null);
+		// add
+		for (int i = 0; i <= 11800; i += 5900) {
+			g2d.drawImage(background, i, -30, null);
+		}
+
 		gsm.render(g2d);
 		player.render(g2d);
 
 		cm.render(g2d);
 		em.render(g2d);
 		// bm.render(g2d);
-		am.render(g2d);
+		// add
+		fbm.render(g2d);
+		im.render(g2d);
 
 		g2d.translate(-camera.getX(), -camera.getY()); // end camera
 		g2d.setColor(Color.BLACK);
@@ -75,15 +87,21 @@ public class GamePanel extends JPanel implements ActionListener {
 		g2d.setColor(Color.PINK);
 		g2d.fillRect(0, 0, player.getPlayerHP() * 5, 32);
 
-		if (player.getPlayerHP() <= 0) {
+		if (player.getPlayerHP() <= 0 || ((player.getX() >= 17518 && player.getX() <= 17535)
+				&& (player.getY() >= 328 && player.getY() <= 346))) {
 			// fixbug
-	        ScoreManager.recordScore();
-
+			ScoreManager.recordScore();
+			Player.score = 0;
+		
 			for (int i = 0; i < cm.coinsList.size();) {
 				cm.coinsList.remove(i);
 			}
 			for (int i = 0; i < em.enemyList.size();) {
 				em.enemyList.remove(i);
+			}
+			// add
+			for (int i = 0; i < im.itemsList.size();) {
+				im.itemsList.remove(i);
 			}
 			time.stop();
 			g2d.setColor(Color.RED);
@@ -100,7 +118,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		player.update();
 		camera.update(player);
 		em.update();
-		am.update();
+		fbm.update();
 
 		repaint();
 	}
