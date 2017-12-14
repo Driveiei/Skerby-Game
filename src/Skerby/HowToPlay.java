@@ -56,7 +56,7 @@ public class HowToPlay extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(10, 420, 110, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\Skerby-Game\\Images\\Background\\HowToPlay.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Netbeans\\Workspace\\Skerby-Game2\\Images\\Background\\HowToPlay.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 640, 480);
 

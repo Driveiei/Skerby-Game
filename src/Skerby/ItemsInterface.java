@@ -50,7 +50,7 @@ public class ItemsInterface extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(10, 430, 120, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Documents\\NetBeansProjects\\Skerby-Game\\Images\\Background\\HowToPlayTwo.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans\\Workspace\\Skerby-Game2\\Images\\Background\\HowToPlayTwo.png")); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 640, 480);
 
@@ -59,7 +59,7 @@ public class ItemsInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+           this.setVisible(false); 
         new HowToPlay().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
