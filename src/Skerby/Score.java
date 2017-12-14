@@ -6,29 +6,32 @@
 package Skerby;
 
 /**
+ * 
+ * @author Kornphon Noiprasert
+ * @author Thanaphon Keawjam
  *
- * @author DELL
  */
+
 public class Score {
-    
-    private String name;
-    private int score;
-    
-    public Score(String name,int score){
-        this.name = name;
-        this.score = score;
-    }
 
-    public String getName() {
-        return name;
-    }
+	private String name;
+	private int score;
 
-    public int getScore() {
-        return score;
-    }
+	public Score(String name, int score) {
+		this.name = name;
+		this.score = score;
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%-60s %5d",name,score);
-    }
+	public String getName() {
+		return name;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%-60s %5d", name, score);
+	}
 }

@@ -8,9 +8,12 @@ package Skerby;
 import javax.swing.JFrame;
 
 /**
+ * 
+ * @author Kornphon Noiprasert
+ * @author Thanaphon Keawjam
  *
- * @author WIN10PRO
  */
+
 public class ScoreFrame {
 
     public static JFrame frame = new JFrame("Skerby Game");
@@ -26,14 +29,5 @@ public class ScoreFrame {
         frame.setResizable(false);
         frame.setVisible(true);
     }
-
-//    public void setVisible(boolean trueOrFalse) {
-//        frame.setSize(WIDTH, HEIGHT);
-//        frame.setLocationRelativeTo(null);
-//        frame.add(new GamePanel());
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setResizable(false);
-//        frame.setVisible(true);
-//    }
 
 }
