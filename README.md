@@ -1,31 +1,29 @@
 ﻿# Skerby-Game
 
-##Skerby Game
+## Skerby Game	
 
-     	 ![firstopen](Review/Interface.png)
-
-   This application is a 2D adventure game where players fight enemies found on the map to clear the stage to adventure on the map and fight with monsters to clear the stage on a 2D land. Try to save your life from the monster and get more score as much as possible. If a player is attacked by the monster and his HP equals to 0, the player will die. So, the player will initialize a new game on the start of the map.
-       ![game](Review/land.png)
+   This application is a 2D adventure game where players fight enemies found on the map to clear the stage to adventure on the map and fight with monsters to clear the stage on a 2D land. Try to save your life from the monster and get more score as much as possible. If a player is attacked by the monster and his HP equals to 0, the player will die. So, the player will initialize a new game on the start of the map.	
+   	![first](Review/Interface.png)
        
 ##Game's contain
  
- #####**How to play**
+ ##### **How to play**
    In this game, the player must type commands
        ![howtoplay](Review/HowToPlay.png)
 
    Try to catch items which are useful such as donut and health but, try to avoid the poison.
        ![item](Review/HowToPlayTwo.png)
  
- #####**Database System**
+ ##### **Database System**
    This application has 'Database System' to collect name of each player and record the scores who got in this game.
        ![enteryourname](Review/Enteryourname.png)
  
  
- #####**Score System**
+ ##### **Score System**
    This application has 'Score System' which can show the high-score board with top 5 players score when a player die or clear the stage, The system will record player's name and player's score. Players can see high-score board how much each player get score in this game.
        ![highscore](Review/HighScore.png)
        
- #####**More button features**
+ ##### **More button features**
 - Click 'Start' button to prepare for playing game.
 - Click 'How to play' button to see the command's details and items in this game.
 - Click 'High Score' button to show the high-score board.
@@ -37,12 +35,13 @@
 - Click 'Exit' button to stop playing this game.
        ![exampleofbuttons](Review/YouDie.png)
 
- ##How to install the game?
+ ## How to install the game?
  - Download and clone [SkerbyGame](https://github.com/Driveiei/Skerby-Game2).
  - Search SkerbyGame/dist folders and click Skerby.jar to play this game (in dist folder must have score.txt and Skerby.jar).
   'Note' To run this application, your computer must has Java version 8 or newer.
+        ![game](Review/land.png)
 
- ##How does it use what we learned in this course?
+ ## How does it use what we learned in this course?
  
  - 'Input Stream' and 'ClassLoader' => Using in 'High Score' board to read data from text file (score.txt).
  ```
@@ -97,7 +96,7 @@
   - 'Make .jar file' => use to merge all java classes and images file to be a file that can use to run the application.
         [jarfile](Review/Jarfile.png)!
 
- ##What does we learn from doing this project?
+ ## What does we learn from doing this project?
  - Using Java Swing to draw 'Graphic User Interface' to use Jframe and JPanel form.
      These are lots of command's examples we use in this project.
  ```
@@ -118,6 +117,6 @@
  ```
  
  
-  ##Contributors
+  ## Contributors
    - Kornphon Noiprasert (6010545021)
    - Thanaphon Kaewjam (6010545781)
