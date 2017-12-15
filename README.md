@@ -160,4 +160,5 @@
   ## Contributors
    - Kornphon Noiprasert (6010545021)
    - Thanaphon Kaewjam (6010545781)
-   'Note**' This project created by two students in Software and Knowledge Engineering program, which this application is final project as part of Programming 1 course for first semester of Kasetsart University.
+  
+  'Note' This project created by two students in Software and Knowledge Engineering program, which this application is final project as part of Programming 1 course for first semester of Kasetsart University.
