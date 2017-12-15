@@ -3,7 +3,7 @@
 ## Skerby Game	
    
    
-   
+  
    ![first](Review/Interface.png)
 
 
@@ -18,7 +18,7 @@
        
 ## Game's contain
  
- ##### **How to play**
+ ### **How to play**
    In this game, the player must type commands
 
 
@@ -35,8 +35,8 @@
  
  
  
- ##### **Database System**
-   This application has 'Database System' to collect name of each player and record the scores who got in this game.
+ ### **Database System**
+   This application has `Database System` to collect name of each player and record the scores who got in this game.
    
    
    
@@ -44,8 +44,8 @@
  
  
  
- ##### **Score System**
-   This application has 'Score System' which can show the high-score board with top 5 players score when a player die or clear the stage, The system will record player's name and player's score. Players can see high-score board how much each player get score in this game.
+ ### **Score System**
+   This application has `Score System` which can show the high-score board with top 5 players score when a player die or clear the stage, The system will record player's name and player's score. Players can see high-score board how much each player get score in this game.
    
    
    
@@ -53,16 +53,16 @@
    
    
    
- ##### **More button features**
-- Click 'Start' button to prepare for playing game.
-- Click 'How to play' button to see the command's details and items in this game.
-- Click 'High Score' button to show the high-score board.
-- Click 'Back' button to return back to last frame you came.
-- Click 'Next' button to skip to next frame of details.
-- Click 'Enter' button to confirm your name and play the game.
-- Click 'Play Again' button to play this game once again at the beginning of the stage.
-- Click 'Main Menu' button to turn back to main menu to select the commands.
-- Click 'Exit' button to stop playing this game.
+ ### **More button features**
+- Click `Start` button to prepare for playing game.
+- Click `How to play` button to see the command's details and items in this game.
+- Click `High Score` button to show the high-score board.
+- Click `Back` button to return back to last frame you came.
+- Click `Next` button to skip to next frame of details.
+- Click `Enter` button to confirm your name and play the game.
+- Click `Play Again` button to play this game once again at the beginning of the stage.
+- Click `Main Menu` button to turn back to main menu to select the commands.
+- Click `Exit` button to stop playing this game.
     
     
     
@@ -78,32 +78,32 @@
 
  ## How does it use what we learned in this course?
  
- - 'Input Stream' and 'ClassLoader' => Using in 'High Score' board to read data from text file (score.txt).
+ - `Input Stream` and `ClassLoader` => Using in 'High Score' board to read data from text file (score.txt).
  ```
      ClassLoader loader = ScoreManager.class.getClassLoader();
      InputStream in = loader.getResourceAsStream(filename);
  ```
 
- - 'OutputSream' => Writing name and score to data in text file (score.txt).
+ - `OutputSream` => Writing name and score to data in text file (score.txt).
  ```
      String outputfile = "score.txt";
      OutputStream out = null;
      PrintStream printOut = new PrintStream(out);
  ```
 
- - 'Arraylist' and 'Array' => Collecting the data of building, coin, item, and enemy in the game.
+ - `Arraylist` and `Array` => Collecting the data of building, coin, item, and enemy in the game.
  ```
      private Score[] fiveScore = new Score[5];
      private static ArrayList<Items> itemsList = new ArrayList<>();
  ```
 
- - 'Object', 'Inheritance', and 'Polymorphism' => Linking the class to be proportionated and more comfortable while coding.
+ - `Object`, `Inheritance`, and `Polymorphism` => Linking the class to be proportionated and more comfortable while coding.
  ```
      private static ArrayList<Coins> cl = CoinsManager.getCoinsBounds();
      public class ItemsInterface extends javax.swing.JFrame{...}
  ```
 
- - 'Try and Catch exception' => Checking the file which be written or not and Avoiding some errors when coding.
+ - `Try and Catch exception` => Checking the file which be written or not and Avoiding some errors when coding.
  ```
      try {
          out = new FileOutputStream(outputfile, true);
@@ -113,7 +113,7 @@
      }
  ```
         
- - 'Hero’s Adventure (Idea)' and 'Loop from e-lab' => Some logic be used in this game to fixed bug and make constructor easier while coding.
+ - `Hero’s Adventure (Idea)` and `Loop from e-lab` => Some logic be used in this game to fixed bug and make constructor easier while coding.
  ```
      public BlockManager(int x , int y ,int column ,int roll){
     	   this.x = x;
@@ -128,7 +128,7 @@
      }
  ```
  
-  - 'Make .jar file' => use to merge all java classes and images file to be a file that can use to run the application.
+  - `Make .jar file` => use to merge all java classes and images file to be a file that can use to run the application.
      
      
      
@@ -141,19 +141,19 @@
      These are lots of command's examples we use in this project.
  ```
     window.setSize(WIDTH, HEIGHT);
-      => to set the size of JFrame.
-	  	window.setLocationRelativeTo(null);
-		    => to set the location in the center of the desktop when play this game.
+	    => to set the size of JFrame.
+    window.setLocationRelativeTo(null);
+	    => to set the location in the center of the desktop when play this game.
     window.add(new GamePanel());
-		    => to add and set information from another class to JFrame.
+	    => to add and set information from another class to JFrame.
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  	  => to be able to close the program.
+	    => to be able to close the program.
     window.setResizable(false);
-		    => to inhibit the player who wants to resize the frame.
+ 	    => to inhibit the player who wants to resize the frame.
     window.setVisible(true);
-      => to makes the player can see this game and change to another frame.
+      	    => to makes the player can see this game and change to another frame.
     ScoreFrame.frame.dispose();
-      => to close the frames that already use.
+       	    => to close the frames that already use.
  ```
  
  
@@ -161,4 +161,4 @@
    - Kornphon Noiprasert (6010545021)
    - Thanaphon Kaewjam (6010545781)
   
-  'Note' This project created by two students in Software and Knowledge Engineering program, which this application is final project as part of Programming 1 course for first semester of Kasetsart University.
+  `Note` This project created by two students in Software and Knowledge Engineering program, which this application is final project as part of Programming 1 course for first semester of Kasetsart University.
